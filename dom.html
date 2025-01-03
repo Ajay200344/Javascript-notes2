@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <h1>magicbus</h1>
+      <div class="container"><p><b>This is the first paragraph. </b>This is the first paragraph.</p>
+        <p>This is the second paragraph.</p>
+      </div>
+      <p><b>how are you</b>hello</p>
+      <div class="container1"><p><b>This is the first paragraph. </b>This is the first paragraph.</p>
+        <p>This is the second paragraph.</p>
+      </div>
+    
+    
+    <script>
+       // Select the container
+const container = document.querySelector('.container');
+
+// Using firstChild
+const firstChild = container.firstChild;
+console.log('firstChild:', firstChild); // Logs a text node or comment node
+
+// Using firstElementChild
+const firstElementChild = container.firstElementChild;
+console.log('firstElementChild:', firstElementChild); // Logs the <p> element
+
+    const firstchildren = container.firstElementChild.children[0];
+console.log('firstchildren:', firstchildren); // Logs the <p> element
+
+    const nextsibling = container.nextElementSibling.children[0];
+console.log('nextsibling:', nextsibling); // Logs the <p> element
+
+    
+    const previousElementSibling = container.previousElementSibling;
+console.log('previousElementSibling:', previousElementSibling); // Logs the <p> element
+    </script>
+</body>
+</html>

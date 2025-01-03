@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toggle Button</title>
+  <style>
+    .status {
+      width: 100px;
+      height: 100px;
+      margin: 20px auto;
+      background-color: grey;
+      border-radius: 50%;
+
+      transition: background-color 0.3s;
+    }
+
+    .on {
+      background-color: yellow;
+      box-shadow:10px 10px 20px rgba(90, 46, 46, 0.2);
+    }
+
+    button {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="status" class="status"></div>
+  <button id="toggleButton">Turn ON</button>
+
+  <script >
+
+const statusDiv = document.getElementById("status");
+const toggleButton = document.getElementById("toggleButton");
+
+let flag = 0; // 0 means OFF, 1 means ON
+
+toggleButton.addEventListener("click", () => {
+  if (flag == 0) {
+    // Turn ON
+    statusDiv.classList.add("on");
+    toggleButton.textContent = "Turn OFF";
+    flag = 1; // Update flag to ON
+  } else {
+    // Turn OFF
+    statusDiv.classList.remove("on");
+    toggleButton.textContent = "Turn ON";
+    flag = 0; // Update flag to OFF
+  }
+});
+
+  </script>
+</body>
+</html>

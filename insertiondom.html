@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM Manipulation</title>
+</head>
+<body>
+    <div class="container">
+        <p class="content">This is some text.</p>
+    </div>
+    <button id="changeText">Change Text</button>
+    <button id="hideText">Hide Text</button>
+    <script>
+        // Select the element
+const content = document.querySelector('.content');
+
+// Example 1: Using innerText
+console.log("Original innerText:", content.innerText);
+content.innerText = "Updated text using innerText";
+
+// Example 2: Using innerHTML
+console.log("Original innerHTML:", content.innerHTML);
+content.innerHTML = "<strong>Updated text with HTML tags using innerHTML</strong>";
+
+// Example 3: Using tagName
+console.log("Tag name of the selected element:", content.tagName);
+
+// Example 4: Using textContent
+console.log("Original textContent:", content.textContent);
+content.textContent = "Updated text using textContent";
+
+// Example 5: Using hidden property
+const hideButton = document.querySelector('#hideText');
+hideButton.addEventListener('click', () => {
+    content.hidden = !content.hidden;
+    console.log("Content visibility toggled:", content.hidden);
+});
+
+
+
+    </script>
+</body>
+</html>

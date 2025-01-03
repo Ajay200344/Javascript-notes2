@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM Manipulation</title>
+</head>
+<body>
+    <div id="container" class="box" style="display: block;">
+        <p id="text">Hello, world!</p>
+    </div>
+    <button id="checkAttribute">Check Attribute</button>
+    <button id="toggleDesignMode">Toggle Design Mode</button>
+    <script>
+        // Select the container element
+const container = document.getElementById('container');
+const text = document.getElementById('text');
+
+// 1. hasAttribute() - Check if an attribute exists
+console.log("Has 'class' attribute:", container.hasAttribute('class'));
+
+// 2. getAttribute() - Get the value of an attribute
+console.log("Value of 'style' attribute:", container.getAttribute('style'));
+
+// 3. setAttribute() - Set or modify an attribute
+container.setAttribute('style', 'display: flex;');
+console.log("Updated 'style' attribute:", container.getAttribute('style'));
+
+// 4. removeAttribute() - Remove an attribute
+container.removeAttribute('class');
+console.log("Has 'class' attribute after removal:", container.hasAttribute('class'));
+
+// 5. document.designMode = "on"
+const toggleDesignModeButton = document.getElementById('toggleDesignMode');
+toggleDesignModeButton.addEventListener('click', () => {
+    if (document.designMode === 'off') {
+        document.designMode = 'on';
+        console.log("Design mode is ON");
+    } else {
+        document.designMode = 'off';
+        console.log("Design mode is OFF");
+    }
+});
+
+// append() - Append an element at the end
+const newParagraph = document.createElement('p');
+newParagraph.textContent = "Appended paragraph.";
+container.append(newParagraph);
+
+// prepend() - Add an element at the beginning
+const anotherParagraph = document.createElement('p');
+anotherParagraph.textContent = "Prepended paragraph.";
+container.prepend(anotherParagraph);
+
+// hasAttribute(): Checks if a specific attribute exists on an element (e.g., class).
+// getAttribute(): Retrieves the value of a specified attribute (e.g., style).
+// setAttribute(): Sets or modifies the value of an attribute (e.g., changing display to flex).
+// removeAttribute(): Removes a specified attribute from an element (e.g., removing class).
+// document.designMode: Allows toggling the document into design mode, where elements can be edited directly in the browser.
+// append(): Adds an element to the end of a parent node.
+// prepend(): Adds an element to the beginning of a parent node.
+    </script>
+</body>
+</html>

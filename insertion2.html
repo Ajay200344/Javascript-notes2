@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM Manipulation</title>
+</head>
+<body>
+    <div id="container">
+        <p id="original">This is the original paragraph.</p>
+    </div>
+    <button id="replace">Replace</button>
+    <button id="addAfter">Add After</button>
+    <button id="addBefore">Add Before</button>
+    <script>
+        // Select the original paragraph element
+const originalParagraph = document.getElementById('original');
+
+// 1. replaceWith() - Replace an element with another
+const replaceButton = document.getElementById('replace');
+replaceButton.addEventListener('click', () => {
+    const newParagraph = document.createElement('p');
+    newParagraph.textContent = "This paragraph has replaced the original one.";
+    originalParagraph.replaceWith(newParagraph);
+});
+
+// 2. after() - Insert content after the selected element
+const afterButton = document.getElementById('addAfter');
+afterButton.addEventListener('click', () => {
+    const afterParagraph = document.createElement('p');
+    afterParagraph.textContent = "This paragraph is added after the original one.";
+    originalParagraph.after(afterParagraph);
+});
+
+// 3. before() - Insert content before the selected element
+const beforeButton = document.getElementById('addBefore');
+beforeButton.addEventListener('click', () => {
+    const beforeParagraph = document.createElement('p');
+    beforeParagraph.textContent = "This paragraph is added before the original one.";
+    originalParagraph.before(beforeParagraph);
+});
+
+    </script>
+</body>
+</html>

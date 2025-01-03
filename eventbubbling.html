@@ -1,0 +1,72 @@
+<!-- Event Bubbling in JavaScript
+Event bubbling is the concept where an event starts from the target element and propagates up to its ancestors in the DOM tree. This means the event on a child element is "bubbled" up to its parent elements unless explicitly stopped.
+
+Scenario:
+We have a nested structure of elements: a div (parent), a button (child inside the div), and we want to observe how the event bubbles through the DOM hierarchy. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Bubbling Example</title>
+  <style>
+    .container {
+      width: 300px;
+      padding: 20px;
+      border: 2px solid blue;
+      margin: 20px;
+    }
+
+    .child {
+      width: 200px;
+      padding: 10px;
+      border: 2px solid green;
+      margin: 10px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: lightgray;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    Parent Div
+    <div class="child">
+      Child Div
+      <button class="button">Click Me</button>
+    </div>
+  </div>
+
+  <script>
+   // Selecting elements
+    const parentDiv = document.querySelector('.container');
+    const childDiv = document.querySelector('.child');
+    const button = document.querySelector('.button');
+    
+    // Adding event listeners
+    parentDiv.addEventListener('click', () => {
+      alert('Parent Div Clicked');
+    });
+    
+    childDiv.addEventListener('click', (e) => {
+      alert('Child Div Clicked');
+      e.stopPropagation();
+
+    });
+    
+    button.addEventListener('click', (e) => {
+      alert('Button Clicked');
+    
+      // Uncomment the next line to stop the event from bubbling
+      e.stopPropagation();
+    });
+    
+    </script>
+</body>
+</html>
